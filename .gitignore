@@ -1,0 +1,22 @@
+# Ignorar la carpeta del entorno virtual
+.venv/
+venv/
+ENV/
+env/
+
+# Ignorar todos los archivos Python
+*.py
+
+# Excepción: permitir subir transcribe.py en la raíz del repositorio
+!transcribe.py
+
+# Cachés y archivos compilados de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos de entorno y configuraciones locales
+.env
+.env.*
+.vscode/
+.idea/
