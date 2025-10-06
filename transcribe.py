@@ -6,7 +6,7 @@ import assemblyai as aai
 
 def obtener_clave_api() -> str:
     """
-    Obtiene la clave de API desde una variable de entorno o un valor predeterminado.
+    Obtiene la clave e API desde una variable de entorno o un valor predeterminado.
     """
     return os.getenv("CLAVE_API_ASSEMBLYAI", "456664d7a27245c78350da6ebff598a5")
 
