@@ -1,7 +1,7 @@
 ## Transcriptor de Audio y Video con AssemblyAI
 
 ### Descripción
-Este programa permite transcribir archivos de audio y video utilizando la API de AssemblyAI. Incluye selección de idioma manual o desde CSV, y detección automática de hablantes (diarización) con opción de asignar nombres personalizados.
+Este programa permite transcribir archivos de audio y video utilizando la API de AssemblyAI. Incluye selección de idioma manual o desde CSV, y detección automática de hablantes (diarización) con opción de asignar nombres personalizados
 
 ### Funcionalidades
 - Transcripción de archivos de audio y video.
