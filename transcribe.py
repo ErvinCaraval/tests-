@@ -202,6 +202,9 @@ def transcribir_audio(fuente: str, opciones: dict) -> tuple[str, object]:
 
     if opciones["codigo_idioma"]:
         configuracion["language_code"] = opciones["codigo_idioma"]
+    # Activar detección automática de idioma si se solicitó
+    if opciones.get("detectar_idioma") and not opciones.get("codigo_idioma"):
+        configuracion["language_detection"] = True
     if opciones["canal_dual"]:
         configuracion["dual_channel"] = True
     if opciones["sin_formato_texto"]:

@@ -33,7 +33,7 @@ Este programa permite transcribir archivos de audio y video utilizando la API de
      ```
    - Si no configuras una clave, el programa usará el valor por defecto embebido, pero debes reemplazarlo por seguridad.
 
-### Uso
+### Uso por línea de comandos
 1. **Transcribir un archivo (modo básico):**
    ```bash
    python transcribe.py <ruta_del_archivo>
@@ -82,5 +82,18 @@ python transcribe.py  "mi_video.mp4"
 - Detección de hablantes: el script habilita `speaker_labels=True` para poder detectar múltiples hablantes; si se detecta más de uno, se formatea automáticamente con etiquetas.
 - Rango/Conteo de speakers: la API permite indicar `speakers_expected` o `speaker_options` (mínimo/máximo). Si necesitas fijar estos valores, se pueden exponer como flags adicionales.
 - Idiomas: por defecto se leen desde `Grid view.csv` (columnas `Language` y `Language Code`). Si no está disponible, se usa una lista interna.
+
+
+### Uso vía Web (interfaz súper simple)
+
+1. Inicia la app web:
+   ```bash
+   export CLAVE_API_ASSEMBLYAI="TU_CLAVE_DE_API"
+   python app.py
+   ```
+
+2. Abre en tu navegador: `http://localhost:5000`
+
+3. Sube un archivo de audio o video y espera el resultado. El idioma se detecta automáticamente. Si hay múltiples hablantes, se muestran líneas con etiquetas.
 
 

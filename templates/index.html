@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Transcribir Audio/Video</title>
+    <style>
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; margin: 2rem; }
+      .card { max-width: 520px; padding: 1.5rem; border: 1px solid #ddd; border-radius: 12px; }
+      .actions { margin-top: 1rem; }
+      .note { color: #555; font-size: 0.9rem; margin-top: 0.5rem; }
+      .flash { background: #ffe8e8; color: #8a1f1f; padding: .75rem 1rem; border-radius: 8px; margin-bottom: 1rem; border: 1px solid #f5c2c2; }
+      input[type="file"] { width: 100%; }
+      button { background: #0d6efd; color: #fff; border: 0; padding: .6rem 1rem; border-radius: 8px; cursor: pointer; }
+      button:disabled { opacity: .6; cursor: not-allowed; }
+    </style>
+  </head>
+  <body>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for m in messages %}
+          <div class="flash">{{ m }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <div class="card">
+      <h1>Transcribir Audio/Video</h1>
+      <form action="{{ url_for('transcribe_upload') }}" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="audio/*,video/*" required>
+        <div style="margin-top:.75rem">
+          <label for="idioma">Idioma</label>
+          <select id="idioma" name="idioma">
+            <option value="auto" selected>Auto (detectar)</option>
+            {% for codigo, etiqueta in idiomas %}
+              <option value="{{ codigo }}">{{ etiqueta }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="actions">
+          <button type="submit">Transcribir</button>
+        </div>
+        <p class="note">Sube un archivo de audio o video. Se detecta el idioma automáticamente.</p>
+      </form>
+    </div>
+    <script>
+      const form = document.querySelector('form');
+      form.addEventListener('submit', () => {
+        const btn = form.querySelector('button');
+        btn.disabled = true; btn.textContent = 'Transcribiendo...';
+      });
+    </script>
+  </body>
+  </html>
+
+
