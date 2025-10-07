@@ -32,9 +32,10 @@ def listar_idiomas_disponibles(ruta_csv: str | None = None) -> list[str]:
         "ja (Japonés)",
         "ko (Coreano)",
     ]
-
+     
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     # Ruta al CSV con el catálogo completo de idiomas (permite sobreescritura por parámetro)
-    ruta_csv = ruta_csv or "/home/ervin/Desktop/text/Grid view.csv"
+    ruta_csv = ruta_csv or os.path.join(BASE_DIR, "Grid view.csv")
 
     try:
         if not os.path.exists(ruta_csv):
