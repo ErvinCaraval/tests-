@@ -9,6 +9,7 @@ env/
 
 # Excepción: permitir subir transcribe.py en la raíz del repositorio
 !transcribe.py
+!app.py
 
 # Cachés y archivos compilados de Python
 __pycache__/
